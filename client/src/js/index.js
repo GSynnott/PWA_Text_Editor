@@ -2,6 +2,9 @@ import { Workbox } from 'workbox-window';
 import Editor from './editor';
 import './database';
 import '../css/style.css';
+//-----------------------------------------------------------
+import logo from '../images/logo.png';
+//-----------------------------------------------------------
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
@@ -31,3 +34,13 @@ if ('serviceWorker' in navigator) {
 } else {
   console.error('Service workers are not supported in this browser.');
 }
+
+//-----------------------------------------------------------
+if (module.hot) {
+  module.hot.accept((err) => {
+    if (err) {
+      console.error('cannout apply HMR update.', err);
+    }
+  });
+}
+//-----------------------------------------------------------
